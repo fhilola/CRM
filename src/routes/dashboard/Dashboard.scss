@@ -1,0 +1,46 @@
+.ant-menu{
+    background-color: var(--light-color);
+}
+.ant-layout-sider-children{
+    background-color: var(--light-color);
+}
+.ant-menu .ant-menu-inline{
+background-color: var(--light-color) !important;
+}
+.ant-menu-submenu-arrow::after, .ant-menu-submenu-arrow::before{
+    color: var(--main-text-color);
+}
+
+.sidebar-span{
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+}
+
+.ant-layout-sider-trigger{
+    background-color: var(--primary-color) !important;
+}
+
+.navbar{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 30px;
+    form{
+        flex: 1;
+    }
+}
+
+.avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 10px;
+}
+
+.content{
+    background-color: var(--main-color);
+    height: 100%;
+    padding: 20px;
+}

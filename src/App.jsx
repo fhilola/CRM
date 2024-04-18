@@ -1,11 +1,12 @@
-import './App.css'
+import './sass/App.scss'
+import RouteController from './routes'
 
 function App() {
 
 
   return (
     <>
-    
+    <RouteController/>
     </>
   )
 }

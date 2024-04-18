@@ -1,0 +1,22 @@
+@import './_fonts.scss';
+:root{
+    --main-color: #F2F2FD;
+    --main-text-color: #002B48;
+    --primary-color: #354F95;
+    --primary-button-color: linear-gradient(360deg, #354F95 2.94%, rgba(2, 59, 215, 0) 265.69%);
+    --button-border: 1px solid #5973BC;
+    --secondary-button-color: #A8BFFF;
+    --success-button-color: linear-gradient(360deg, #33C481 2.94%, #FFFFFF 236.27%);
+    --success-button-border: 1px solid #21A366;
+    --danger-button-color: linear-gradient(360deg, #FF0000 2.94%, #FFFFFF 204.9%);
+    --danger-button-border: 1px solid #FF0000;
+    --light-color: #FFFFFF;
+    --gilroy-regular: 'Gilroy Regular';
+    --gilroy-regular-ilatic: 'Gilroy Regular Italic';
+    --gilroy-black: 'Gilroy Black';
+    --gilroy-black-italic: 'Gilroy Black Italic';
+    --gilroy-bold: 'Gilroy Bold';
+    --gilroy-bold-italic: 'Gilroy Bold Italic';
+    --gilroy-extra-bold: 'Gilroy Extra Bold';
+    --gilroy-extra-bold-italic: 'Gilroy Extra Bold Italic';
+}

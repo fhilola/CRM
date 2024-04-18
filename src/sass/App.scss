@@ -1,0 +1,12 @@
+@import './_reset.scss';
+@import './_variables.scss';
+@import './_fonts.scss';
+
+*{
+    font-family: var(--gilroy-bold) !important;
+    color: var(--main-text-color);
+}
+
+a{
+    text-decoration: none;
+}
