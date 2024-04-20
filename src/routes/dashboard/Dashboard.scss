@@ -1,46 +1,86 @@
-.ant-menu{
+.ant-layout-header {
+    height: 80px;
+}
+
+.ant-menu,
+.ant-layout-sider-children,
+.ant-menu .ant-menu-inline {
     background-color: var(--light-color);
 }
-.ant-layout-sider-children{
-    background-color: var(--light-color);
+
+.ant-layout-sider .ant-layout-sider-dark .ant-layout-sider-has-trigger {
+    height: 100vh;
 }
-.ant-menu .ant-menu-inline{
-background-color: var(--light-color) !important;
-}
-.ant-menu-submenu-arrow::after, .ant-menu-submenu-arrow::before{
+
+.ant-menu-submenu-arrow::after,
+.ant-menu-submenu-arrow::before {
     color: var(--main-text-color);
 }
 
-.sidebar-span{
+.sidebar-span {
     display: flex;
     align-items: center;
     gap: 0 5px;
 }
 
-.ant-layout-sider-trigger{
+.ant-layout-sider-trigger {
     background-color: var(--primary-color) !important;
 }
 
-.navbar{
+.navbar {
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0 30px;
-    form{
+    height: 100%;
+
+    form {
         flex: 1;
     }
 }
 
-.avatar{
+.avatar {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0 10px;
 }
 
-.content{
+.content {
     background-color: var(--main-color);
     height: 100%;
     padding: 20px;
+}
+
+.create-button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+.ant-btn{
+    color: var(--light-color) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .ant-layout-sider-trigger {
+        display: none;
+    }
+
+    .ant-layout-sider .ant-layout-sider-dark .ant-layout-sider-collapsed .ant-layout-sider-has-trigger{
+        max-width: 80px;
+        min-width: 80px;
+        width: 80px;
+    }
+
+    :where(.css-dev-only-do-not-override-1qfezbu).ant-layout .ant-layout-sider-has-trigger {
+        padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .create-button {
+        display: none;
+    }
 }

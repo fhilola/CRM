@@ -7,11 +7,12 @@ import {
     HomeOutlined,
     FieldTimeOutlined,
     SearchOutlined,
-    UserOutlined
+    UserOutlined,
+    PlusCircleOutlined
 } from '@ant-design/icons';
-import {  Input, Layout, Menu, theme, Avatar, Space } from 'antd';
-import { Link, Outlet, useLocation } from 'react-router-dom';
-const { Header, Content, Sider } = Layout;
+import { Input, Layout, Menu, theme, Drawer, Button, Form, Select } from 'antd';
+import { Link, Outlet } from 'react-router-dom';
+const { Header, Sider } = Layout;
 function getItem(label, key, icon, children) {
     return {
         key,
@@ -21,20 +22,37 @@ function getItem(label, key, icon, children) {
     };
 }
 
+
+
 const items = [
     getItem(<Link to={'/'} className='sidebar-span'><span className='ant-menu-title-content'>Logo</span></Link>),
-    getItem(<Link to={'/'} className='sidebar-span'><HomeOutlined/><span className='ant-menu-title-content'>Bosh sahifa</span></Link>),
+    getItem(<Link to={'/'} className='sidebar-span'><HomeOutlined /><span className='ant-menu-title-content'>Bosh sahifa</span></Link>),
     getItem(<Link to={'/guruhlar'} className='sidebar-span'><GroupOutlined /><span className='ant-menu-title-content'>Guruhlar</span></Link>),
     getItem(<Link to={'/xonalar'} className='sidebar-span'><BorderOutlined /><span className='ant-menu-title-content'>Xonalar</span></Link>),
     getItem(<Link to={'/fanlar'} className='sidebar-span'><ReadOutlined /><span className='ant-menu-title-content'>Fanlar</span></Link>),
     getItem(<Link to={'/vaqt'} className='sidebar-span'><FieldTimeOutlined /><span className='ant-menu-title-content'>Vaqt</span></Link>),
+    getItem(<Link to={'/'} className='sidebar-span'><UserOutlined /><span className='ant-menu-title-content'>Hilola Fayoziddinova</span></Link>)
 ];
 
 const Dashboard = () => {
+    const [open, setOpen] = useState(false);
+    const [placement, setPlacement] = useState('left');
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
+    const handleChange = (value) => {
+    console.log(`selected ${value}`);
+};
+
+    const [form] = Form.useForm();
     return (
 
         <Layout
@@ -45,10 +63,8 @@ const Dashboard = () => {
         >
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
                 <div className="demo-logo-vertical" />
-                
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items}>
-                    <h1>logo</h1>
-                </Menu>
+
+                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
             </Sider>
             <Layout>
                 <Header
@@ -57,18 +73,69 @@ const Dashboard = () => {
                         background: colorBgContainer,
                     }}
                 >
-                   <div className="navbar">
-                    <form>
-                        <Input size="large" placeholder="large size" prefix={<SearchOutlined />} />
-                    </form>
-                    <div className="avatar">
-                        <strong>Hilola Fayoziddinova</strong>
-                        <Avatar size={'large'} icon={<UserOutlined />} />
+                    <div className="navbar">
+                        <button onClick={showDrawer} className='create-button'><PlusCircleOutlined /></button>
+                        <form>
+                            <Input size="large" placeholder="large size" prefix={<SearchOutlined />} />
+                        </form>
                     </div>
-                    </div> 
+                    <Drawer
+                        title="Foydalanuvchi yaratish"
+                        placement={'right'}
+                        closable={true}
+                        onClose={onClose}
+                        open={open}
+                        key={placement}
+                    >
+                        <Form
+                            layout={'vertical'}
+                            form={form}
+                            initialValues={{
+                                layout: 'vertical',
+                            }}
+                        >
+                            <Form.Item label="Foydalanuvchi nomi">
+                                <Input placeholder="input placeholder" />
+                            </Form.Item>
+                            <Form.Item label="Parol">
+                                <Input placeholder="input placeholder" />
+                            </Form.Item>
+                            <Form.Item label="Status">
+                                <Select
+                                defaultValue="Status"
+                                style={{
+                                    width: 'full',
+                                }}
+                                onChange={handleChange}
+                                options={[
+                                    {
+                                        value: 'manager',
+                                        label: 'Manager',
+                                    },
+                                    {
+                                        value: 'assist',
+                                        label: 'Assist',
+                                    },
+                                    {
+                                        value: 'ustoz',
+                                        label: 'Ustoz',
+                                    },
+                                    {
+                                        value: 'oquvchi',
+                                        label: "O'quvchi",
+                                    }
+                                    
+                                ]}
+                            />
+                            </Form.Item>
+                            <Form.Item>
+                                <Button htmlType="submit" type="primary">Submit</Button>
+                            </Form.Item>
+                        </Form>
+                    </Drawer>
                 </Header>
                 <div className='content'>
-                    <Outlet/>
+                    <Outlet />
                 </div>
             </Layout>
         </Layout>
