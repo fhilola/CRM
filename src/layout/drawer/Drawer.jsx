@@ -2,7 +2,7 @@ import React from 'react'
 import { Drawer as AntDrawer, Button, Form, Input, Select } from 'antd'
 import { useLocation } from 'react-router-dom'
 
-const Drawer = ({ title, placement, onClose, open, form, onSubmitCapture, username, setUsername, password, setPassword, handleChange, name, setName}) => {
+const Drawer = ({ title, placement, onClose, open, form, onSubmitCapture, username, setUsername, password, setPassword, handleChange, name, setName, fee, setFee }) => {
     const { pathname } = useLocation()
     return (
         <AntDrawer
@@ -30,6 +30,15 @@ const Drawer = ({ title, placement, onClose, open, form, onSubmitCapture, userna
                             <Form.Item label="Xona nomi">
                                 <Input value={name} onChange={(e) => setName(e.target.value)} />
                             </Form.Item>
+                            : pathname === '/fanlar' ?
+                            <>
+                            <Form.Item label="Fan nomi">
+                                <Input  value={name} onChange={(e) => setName(e.target.value)} />
+                            </Form.Item>
+                            <Form.Item label="Narxi">
+                                <Input type='number' value={fee} onChange={(e) => setFee(e.target.value)} />
+                            </Form.Item>
+                            </>
                             :
                             <>
                                 <Form.Item label="Foydalanuvchi nomi">
