@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import { createUser } from '../../redux/actions/createAction'
 
 const Groups = (props) => {
-  const [name, setGroupname] = useState('')
+  const [name, setName] = useState('')
   const handleCreate = (e) => {
     e.preventDefault()
     props.createUser({name}, '/group/')
   }
   return (
     <div>
-      <Creation name={name} setGroupname={setGroupname} onSubmitCapture={handleCreate} title={'Guruhlar'} count={100}/>
+      <Creation name={name} setName={setName} onSubmitCapture={handleCreate} title={'Guruhlar'} count={100}/>
     </div>
   )
 }

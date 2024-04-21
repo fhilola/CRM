@@ -2,14 +2,14 @@ import React from 'react'
 import './Creation.scss'
 import { useState } from 'react'
 import { Btn } from '../../utils/Utils'
-import { Button, Form, Select, Input} from 'antd'
+import { Form } from 'antd'
 import Drawer from '../../layout/drawer/Drawer'
 
-const Creation = ({grupname, setGroupname, onSubmitCapture, title, count,  }) => {
+const Creation = ({ name, setName, onSubmitCapture, title, count }) => {
     const [open, setOpen] = useState(false);
     const [placement, setPlacement] = useState('right');
     const [form] = Form.useForm();
-     const showDrawer = () => {
+    const showDrawer = () => {
         setOpen(true);
     };
     const onClose = () => {
@@ -22,7 +22,7 @@ const Creation = ({grupname, setGroupname, onSubmitCapture, title, count,  }) =>
                 <strong>Miqdor - {count}</strong>
             </div>
             <Btn onClick={showDrawer} appearance='primary'>Yaratish</Btn>
-            <Drawer grupname={grupname} setGroupname={setGroupname} title={title}  placement={placement} open={open} onClose={onClose} form={form} onSubmitCapture={onSubmitCapture}/>
+            <Drawer name={name} setName={setName} title={title} placement={placement} open={open} onClose={onClose} form={form} onSubmitCapture={onSubmitCapture} />
         </div>
     )
 }
