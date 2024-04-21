@@ -39,6 +39,37 @@ const Drawer = ({ title, placement, onClose, open, form, onSubmitCapture, userna
                                 <Input type='number' value={fee} onChange={(e) => setFee(e.target.value)} />
                             </Form.Item>
                             </>
+                            : pathname === '/vaqt' ?
+                            <>
+                            <Form.Item label="Vaqt">
+                                <Input value={name} onChange={(e) => setName(e.target.value)} />
+                            </Form.Item>
+                            <Form.Item label="Payt">
+                                    <Select
+                                        defaultValue="Ixtiyoriy"
+                                        
+                                        style={{
+                                            width: 'full',
+                                        }}
+                                        onChange={handleChange}
+                                        options={[
+                                            {
+                                                value: 'ertalab',
+                                                label: 'Ertalab',
+                                            },
+                                            {
+                                                value: 'ixtiyoriy',
+                                                label: 'Ixtiyoriy',
+                                            },
+                                            {
+                                                value: 'kechki',
+                                                label: 'Kechki',
+                                            }
+
+                                        ]}
+                                    />
+                                </Form.Item>
+                            </>
                             :
                             <>
                                 <Form.Item label="Foydalanuvchi nomi">

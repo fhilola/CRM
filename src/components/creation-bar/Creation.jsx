@@ -5,7 +5,7 @@ import { Btn } from '../../utils/Utils'
 import { Form } from 'antd'
 import Drawer from '../../layout/drawer/Drawer'
 
-const Creation = ({ name, setName, onSubmitCapture, title, count, fee, setFee }) => {
+const Creation = ({ name, setName, onSubmitCapture, handleChange, title, count, fee, setFee }) => {
     const [open, setOpen] = useState(false);
     const [placement, setPlacement] = useState('right');
     const [form] = Form.useForm();
@@ -22,7 +22,7 @@ const Creation = ({ name, setName, onSubmitCapture, title, count, fee, setFee })
                 <strong>Miqdor - {count}</strong>
             </div>
             <Btn onClick={showDrawer} appearance='primary'>Yaratish</Btn>
-            <Drawer name={name} setName={setName} title={title} placement={placement} open={open} onClose={onClose} form={form} onSubmitCapture={onSubmitCapture} fee={fee} setFee={setFee} />
+            <Drawer name={name} setName={setName} title={title} placement={placement} open={open} onClose={onClose} form={form} onSubmitCapture={onSubmitCapture} fee={fee} setFee={setFee} handleChange={handleChange}/>
         </div>
     )
 }
