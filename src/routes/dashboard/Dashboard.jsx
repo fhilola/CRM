@@ -12,12 +12,10 @@ import {
     UserOutlined,
     PlusCircleOutlined,
     UsergroupAddOutlined,
-    MenuOutlined
 } from '@ant-design/icons';
-import { Input, Layout, Menu, theme,  Button, Form, Select } from 'antd';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Input, Layout, Menu, theme, Button, Form, Select } from 'antd';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { createUser } from '../../redux/actions/createAction';
-import Creation from '../../components/creation-bar/Creation';
 const { Header, Sider } = Layout;
 function getItem(label, key, icon, children) {
     return {
@@ -27,9 +25,6 @@ function getItem(label, key, icon, children) {
         label,
     };
 }
-
-
-
 const items = [
     getItem(<Link to={'/'} className='sidebar-span'><span className='ant-menu-title-content'>Logo</span></Link>),
     getItem(<Link to={'/'} className='sidebar-span'><HomeOutlined /><span className='ant-menu-title-content'>Bosh sahifa</span></Link>),
@@ -67,39 +62,39 @@ const Dashboard = (props) => {
 
     const handleCreateUser = (e) => {
         e.preventDefault()
-        props.createUser({ username, password, status })
+        props.createUser({ username, password, status }, '/user/')
     }
     return (
 
         <div className='dashboard'>
-            {/* <div className='header'>
+            <div className='header'>
                 <ul className='header-ul'>
                     <li>
-                        <Link to={'/'} className='sidebar-span'><span className='ant-menu-title-content'>Logo</span></Link>
+                        <Link to='/'>Logo</Link>
                     </li>
                     <li>
-                        <Link to={'/'} className='sidebar-span'><HomeOutlined /><span className='ant-menu-title-content'>Bosh sahifa</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/'}><HomeOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/guruhlar'} className='sidebar-span'><GroupOutlined /><span className='ant-menu-title-content'>Guruhlar</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/guruhlar'}><GroupOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/xonalar'} className='sidebar-span'><BorderOutlined /><span className='ant-menu-title-content'>Xonalar</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/xonalar'}><BorderOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/fanlar'} className='sidebar-span'><ReadOutlined /><span className='ant-menu-title-content'>Fanlar</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/fanlar'}><ReadOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/vaqt'} className='sidebar-span'><FieldTimeOutlined /><span className='ant-menu-title-content'>Vaqt</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/vaqt'}><FieldTimeOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/talabalar'} className='sidebar-span'><UsergroupAddOutlined /><span className='ant-menu-title-content'>Talabalar</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/talabalar'}><UsergroupAddOutlined /></NavLink>
                     </li>
                     <li>
-                        <Link to={'/accaunt'} className='sidebar-span'><UserOutlined /><span className='ant-menu-title-content'>Hilola Fayoziddinova</span></Link>
+                        <NavLink className={({ isActive }) => isActive ? 'active-menu-link' : ''} to={'/accaunt'}><UserOutlined /></NavLink>
                     </li>
                 </ul>
-            </div> */}
+            </div>
             <Layout
                 style={{
                     minHeight: '100vh',
@@ -124,14 +119,12 @@ const Dashboard = (props) => {
                             <form>
                                 <Input size="large" placeholder="large size" prefix={<SearchOutlined />} />
                             </form>
-                            <button className='navbar-btn'><MenuOutlined /></button>
                         </div>
                         {
                             open && <Drawer title="Foydalanuvchi yaratish" placement={placement} onClose={onClose} open={open} onSubmitCapture={handleCreateUser} form={form} username={username} setUsername={setUsername} password={password} setPassword={setPassword} handleChange={handleChange} />
                         }
                     </Header>
                     <div className='content'>
-                        <Creation title={pathname.replace('/', '')} count={'5'} />
                         <Outlet />
                     </div>
                 </Layout>

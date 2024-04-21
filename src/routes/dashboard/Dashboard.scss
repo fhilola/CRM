@@ -59,24 +59,45 @@
     font-size: 20px;
 }
 
-.ant-btn{
+.ant-btn {
     color: var(--light-color) !important;
 }
 
-.navbar-btn{
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
+.header-ul {
     display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.308);
+
+    li {
+        font-size: 20px;
+
+        a {
+            padding: 10px;
+        }
+    }
 }
 
+.active-menu-link {
+    background-color: var(--primary-color);
+    color: var(--light-color) !important;
+}
 
 @media only screen and (max-width: 768px) {
-    .navbar-btn{
+    .navbar-btn {
         display: block;
     }
-    .sidebar{
+
+    .sidebar {
         display: none;
+    }
+
+    .header-ul {
+        display: flex;
+        li{
+            font-size: 16px;
+        }
     }
 }
 

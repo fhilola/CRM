@@ -1,8 +1,11 @@
 import React from 'react'
+import Creation from '../../components/creation-bar/Creation'
 
 const Time = () => {
   return (
-    <div>Time</div>
+    <div>
+      <Creation title={'Vaqt'} count={100}/>
+    </div>
   )
 }
 

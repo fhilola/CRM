@@ -11,8 +11,8 @@ const create_user = (user) => {
     }
 }
 
-const createUser = USER => async dispatch =>{
-    instance.post('/user/', USER)
+const createUser = (USER, endpoint )=> async dispatch =>{
+    instance.post(`${endpoint}`, USER)
     .then(response => {
         if(response.status === 201){
             console.log(response);

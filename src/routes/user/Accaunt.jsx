@@ -1,8 +1,10 @@
 import React from 'react'
+import Creation from '../../components/creation-bar/Creation'
 
 const Accaunt = () => {
   return (
-    <div>Accaunt</div>
+    <div>
+    </div>
   )
 }
 

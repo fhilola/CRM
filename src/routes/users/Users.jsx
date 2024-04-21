@@ -1,8 +1,11 @@
 import React from 'react'
+import Creation from '../../components/creation-bar/Creation'
 
 const Users = () => {
   return (
-    <div>Users</div>
+    <div>
+      <Creation title={'Foydalanuvchilar'} count={100}/>
+    </div>
   )
 }
 

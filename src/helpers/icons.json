@@ -1,0 +1,35 @@
+[
+    {
+        "link" : "/",
+        "icon" : "Logo"
+    },
+    {
+        "link" : "/",
+        "icon" : "<HomeOutlined/>"
+    },
+    {
+        "link" : "/guruhlar",
+        "icon" : "<GroupOutlined/>"
+    },
+    {
+        "link" : "/xonalar",
+        "icon" : "<BorderOutlined/>"
+    },
+    {
+        "link" : "/fanlar",
+        "icon" : "<ReadOutlined/>"
+    },
+    {
+        "link" : "/vaqt",
+        "icon" : "<FieldTimeOutlined/>"
+    },
+    {
+        "link" : "/talabalar",
+        "icon" : "<UsergroupAddOutlined/>"
+    },
+    {
+        "link" : "/accaunt",
+        "icon" : "<UserOutlined/>"
+    }
+    
+]
