@@ -1,0 +1,27 @@
+.btn{
+    padding: 10px 24px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 0 10px;
+
+    &.primary{
+        border: var(--button-border);
+        background: var(--primary-button-color);
+    }
+    &.secondary{
+        background: var(--secondary-button-color);
+        border: var(--button-border);
+    }
+    &.success{
+        background: var(--success-button-color);
+        border: var(--success-button-border);
+    }
+    &.danger{
+        background: var(--danger-button-color);
+        border: var(--danger-button-border);
+    }
+}

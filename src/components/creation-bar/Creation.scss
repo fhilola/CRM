@@ -1,0 +1,26 @@
+.creation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div{
+        display: flex;
+        align-items: flex-end;
+        gap: 0 20px;
+        h2{
+            font-size: 30px;
+            text-transform: capitalize;
+        }
+        strong{
+            font-size: 14px;
+            text-align: end;
+            margin-bottom: 2px;
+            color: var(--secondary-text-color);
+        }
+    }
+}
+// .content{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 0 10px;
+// }

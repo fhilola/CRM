@@ -4,9 +4,10 @@ import Dashboard from './dashboard/Dashboard'
 import Groups from './groups/Groups'
 import Room from './room/Room'
 import Subject from './subject/Subject'
-import User from './user/User'
 import Time from './time/Time'
 import Main from './main/Main'
+import Accaunt from './user/Accaunt'
+import Users from './users/Users'
 
 const RouteController = () => {
   return (
@@ -16,8 +17,9 @@ const RouteController = () => {
         <Route path="/guruhlar" element={<Groups />} />
         <Route path='/xonalar' element={<Room />} />
         <Route path='/fanlar' element={<Subject />} />
-        <Route path='/foydalanuvchilar' element={<User />} />
+        <Route path='/accaunt' element={<Accaunt />} />
         <Route path='/vaqt' element={<Time />} />
+        <Route path='/talabalar' element={<Users />} />
       </Route>
 
     </Routes>

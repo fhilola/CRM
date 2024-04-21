@@ -63,19 +63,20 @@
     color: var(--light-color) !important;
 }
 
+.navbar-btn{
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    display: none;
+}
+
+
 @media only screen and (max-width: 768px) {
-    .ant-layout-sider-trigger {
+    .navbar-btn{
+        display: block;
+    }
+    .sidebar{
         display: none;
-    }
-
-    .ant-layout-sider .ant-layout-sider-dark .ant-layout-sider-collapsed .ant-layout-sider-has-trigger{
-        max-width: 80px;
-        min-width: 80px;
-        width: 80px;
-    }
-
-    :where(.css-dev-only-do-not-override-1qfezbu).ant-layout .ant-layout-sider-has-trigger {
-        padding: 0 !important;
     }
 }
 

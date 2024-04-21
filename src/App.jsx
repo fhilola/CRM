@@ -1,9 +1,7 @@
 import './sass/App.scss'
 import RouteController from './routes'
 
-function App() {
-
-
+function App(prop) {
   return (
     <>
     <RouteController/>
