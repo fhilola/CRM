@@ -38,7 +38,6 @@ const items = [
 
 const Dashboard = (props) => {
     const { pathname } = useLocation()
-    console.log(pathname);
     const [open, setOpen] = useState(false);
     const [placement, setPlacement] = useState('left');
     const showDrawer = () => {

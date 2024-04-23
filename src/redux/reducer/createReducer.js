@@ -6,7 +6,7 @@ const initialState = {
     isCreated: false
 }
 
-const userReducer = (state = initialState, action) => {
+const createReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_USER:
             return {
@@ -21,4 +21,4 @@ const userReducer = (state = initialState, action) => {
     }
 }
 
-export {userReducer}
+export default createReducer

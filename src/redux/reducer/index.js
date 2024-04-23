@@ -1,8 +1,14 @@
 import { combineReducers } from "redux";
-import { userReducer } from "./userReducer";
+
+import createReducer from "./createReducer";
+import { groupReducer, roomReducer, subjectReducer, userReducer } from "./getReducer";
 
 const rootReducer = combineReducers({
-    userCreation: userReducer
+    userCreation: createReducer,
+    getUser: userReducer,
+    getGroup: groupReducer,
+    getSubjects: subjectReducer,
+    getRooms: roomReducer
 });
 
 export default rootReducer
