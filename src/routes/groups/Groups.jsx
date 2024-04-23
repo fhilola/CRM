@@ -11,6 +11,7 @@ const Groups = (props) => {
   const handleCreate = (e) => {
     e.preventDefault()
     props.createUser({name}, '/group/')
+    setName('')
   }
   useEffect(()=>{
     props.getGroup()
