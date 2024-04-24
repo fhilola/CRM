@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-// import Card from '../../components/card/Card'
+import './Main.scss'
+import { Card } from 'antd'
 import { connect, useSelector } from 'react-redux'
 import { getGroup, getRooms, getSubjects, getUsers } from '../../redux/actions/getAction'
+import { PiUsersThree } from "react-icons/pi";
 
 const Main = (props) => {
   useEffect(() => {
@@ -10,23 +12,25 @@ const Main = (props) => {
     props.getSubjects()
     props.getRooms()
   }, [])
-  const users = useSelector(state => state.getUser.output)
-  const groups  = useSelector(state => state.getGroup.groups)
-  const subjects  = useSelector(state => state.getSubjects.subjects)
-  const rooms = useSelector(state => state.getRooms.rooms)
+  const output = useSelector(state => state.getUser)
+  const groups  = useSelector(state => state.getGroup)
+  const subjects  = useSelector(state => state.getSubjects)
+  const rooms= useSelector(state => state.getRooms)
   const data = []
 
-  data.push(users, groups, subjects, rooms)
-  // console.log(data);
 
+  data.push(output, groups, subjects, rooms)
   return (
-    <div>
-      {/* {
+    <div className='card-grid'>
+      {
         data?.map((card, index)=>
-        console.log(card)
-        // <Card key={index} data={card} text='Hilola'/>
+        <Card className='card'>
+          <span className='icon-span'><PiUsersThree/></span>
+          <h2>{card ? Object.keys(card)[0].toUpperCase() : ''}</h2>
+          <strong>Jami: {card ? Object.values(card)[0].length : ''}</strong>
+        </Card>
         )
-      } */}
+      }
     </div>
   )
 }

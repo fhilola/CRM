@@ -4,7 +4,7 @@ import Creation from '../../components/creation-bar/Creation'
 import { connect, useSelector } from 'react-redux'
 import { createUser } from '../../redux/actions/createAction'
 import { getGroup } from '../../redux/actions/getAction'
-import Card from '../../components/card/Card'
+import { Card } from 'antd'
 
 const Groups = (props) => {
   const [name, setName] = useState('')
@@ -16,7 +16,7 @@ const Groups = (props) => {
   useEffect(()=>{
     props.getGroup()
   }, [name])
-  const {groups} = useSelector(state => state.getGroup.groups)
+  const groups = useSelector(state => state.getGroup.guruhlar)
   console.log(groups);
   return (
     <div>
@@ -24,7 +24,9 @@ const Groups = (props) => {
       <div className='card-grid'>
         {
         groups?.map((group, index)=>
-        <Card key={index} name={group.name}/>
+        <Card key={index}>
+          <h2>{group.name !== null ? group.name : "Guruh nomi"}</h2>
+        </Card>
         )
       }
       </div>

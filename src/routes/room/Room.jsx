@@ -3,7 +3,7 @@ import Creation from '../../components/creation-bar/Creation'
 import { createUser } from '../../redux/actions/createAction'
 import { connect, useSelector } from 'react-redux'
 import { getRooms } from '../../redux/actions/getAction'
-import Card from '../../components/card/Card'
+import { Card } from 'antd'
 
 const Room = (props) => {
   const [room, setName] = useState('')
@@ -17,7 +17,7 @@ const Room = (props) => {
     props.getRooms()
   }, [handleCreate])
 
-  const { rooms } = useSelector(state => state.getRooms.rooms)
+  const rooms  = useSelector(state => state.getRooms.xonalar)
 
   console.log(rooms);
 
@@ -27,7 +27,9 @@ const Room = (props) => {
       <div className="card-grid">
         {
           rooms?.map((room, index) =>
-            <Card key={index} name={room.room} />
+          <Card>
+            <h2>{room.room}</h2>
+          </Card>
           )
         }
       </div>

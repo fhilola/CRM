@@ -3,7 +3,7 @@ import Creation from '../../components/creation-bar/Creation'
 import { connect, useSelector } from 'react-redux'
 import { createUser } from '../../redux/actions/createAction'
 import {getSubjects} from '../../redux/actions/getAction'
-import Card from '../../components/card/Card'
+import { Card } from 'antd'
 
 const Subject = (props) => {
   const [name, setName] = useState('')
@@ -16,7 +16,7 @@ const Subject = (props) => {
     props.getSubjects()
   }, [handleCreate])
 
-  const {subjects}= useSelector(state => state.getSubjects.subjects)
+  const subjects= useSelector(state => state.getSubjects.fanlar)
   return (
     <div>
       <Creation title={'Fanlar'} count={100} name={name} setName={setName} onSubmitCapture={handleCreate} fee={fee} setFee={setFee}/>
@@ -25,7 +25,10 @@ const Subject = (props) => {
       <div className="card-grid">
         {
           subjects?.map((subject, index)=>
-          <Card key={index} name={subject.name} fee={subject.fee}/>
+          <Card>
+            <h2>{subject.name}</h2>
+            <strong>{subject.fee}</strong>
+          </Card>
           )
         }
       </div>

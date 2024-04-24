@@ -44,7 +44,7 @@ const Users = (props) => {
   useEffect(() => {
     props.getUsers()
   }, [])
-  const { users } = useSelector(state => state.getUser.output)
+  const users = useSelector(state => state.getUser.foydalanuvchilar)
   const data = [];
   for (let key in users) {
     const userInfo = {

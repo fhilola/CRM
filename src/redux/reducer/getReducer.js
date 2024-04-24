@@ -1,26 +1,26 @@
 import { GET_GROUP, GET_ROOM, GET_SUBJECT, GET_USER } from "../actions/index"
 
 const initialState = {
-    output: [],
+    foydalanuvchilar: null,
     isloading: false,
     isError: false,
     isGet: false
 }
 
 const groupInfo = {
-    groups: [],
+    guruhlar: null,
     isloading: false,
     isError: false,
     isGet: false
 }
 const subjectInfo = {
-    subjects: [],
+    fanlar: null,
     isloading: false,
     isError: false,
     isGet: false
 }
 const roomInfo = {
-    rooms: [],
+    xonalar: null,
     isloading: false,
     isError: false,
     isGet: false
@@ -30,7 +30,7 @@ const userReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_USER:
             return {
-                output: payload,
+                foydalanuvchilar: payload.users,
                 isloading: false,
                 isError: false,
                 isGet: true
@@ -43,7 +43,7 @@ const groupReducer = (state = groupInfo, { type, payload }) => {
     switch (type) {
         case GET_GROUP:
             return {
-                groups: payload,
+                guruhlar: payload.groups,
                 isloading: false,
                 isError: false,
                 isGet: true
@@ -56,7 +56,7 @@ const subjectReducer = (state = subjectInfo, { type, payload }) => {
     switch (type) {
         case GET_SUBJECT:
             return {
-                subjects: payload,
+                fanlar: payload.subjects,
                 isloading: false,
                 isError: false,
                 isGet: true
@@ -69,7 +69,7 @@ const roomReducer = (state = roomInfo, { type, payload }) => {
     switch (type) {
         case GET_ROOM:
             return {
-                rooms: payload,
+                xonalar: payload.rooms,
                 isloading: false,
                 isError: false,
                 isGet: true
