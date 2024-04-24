@@ -24,7 +24,7 @@ const Subject = (props) => {
 
       <div className="card-grid">
         {
-          subjects.map((subject, index)=>
+          subjects?.map((subject, index)=>
           <Card key={index} name={subject.name} fee={subject.fee}/>
           )
         }
