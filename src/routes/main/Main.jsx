@@ -24,11 +24,12 @@ const Main = (props) => {
     <div className='card-grid'>
       {
         data?.map((card, index)=>
-        <Card className='card'>
+        card !== null ? <Card key={index} className='card'>
           <span className='icon-span'><PiUsersThree/></span>
           <h2>{card ? Object.keys(card)[0].toUpperCase() : ''}</h2>
-          <strong>Jami: {card ? Object.values(card)[0].length : ''}</strong>
-        </Card>
+          <strong>Jami: {Object.values(card)[0] ? Object.values(card)[0].length : 'hichnarsa yoq'}</strong>
+        </Card> : console.log('nullga teng')
+        
         )
       }
     </div>
