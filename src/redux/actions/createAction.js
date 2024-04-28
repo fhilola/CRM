@@ -1,13 +1,13 @@
 import { toast } from "react-toastify";
 import instance from "../../api";
-import { CREATE_GROUP, CREATE_ROOM, CREATE_SUBJECT, CREATE_TIME, CREATE_USER, CREATE_USER_ERROR, CREATE_USER_LOADING } from "./index";
+import { CREATE_ERROR, CREATE_LOADING, CREATE } from "./index";
 
 
-const create_user = (user) => {
+const create = (created) => {
     return {
-        type: CREATE_USER,
+        type: CREATE,
         payload: {
-            user
+            created
         }
     }
 }
@@ -17,7 +17,7 @@ const createUser = (USER, endpoint) => async dispatch => {
         .then(response => {
             if (response.status === 201) {
                 console.log(response);
-                dispatch(create_user(response))
+                dispatch(create(response))
                 toast.success('Muvaffaqiyatli yaratildi', {
                     position: "top-center",
                     autoClose: 3000,
@@ -30,7 +30,19 @@ const createUser = (USER, endpoint) => async dispatch => {
                 })
             }
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            toast.error(error.response.data.username[0], {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            console.log();
+        })
 }
 
 export { createUser }

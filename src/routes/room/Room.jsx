@@ -19,7 +19,6 @@ const Room = (props) => {
 
   const rooms  = useSelector(state => state.getRooms.xonalar)
 
-  console.log(rooms);
 
   return (
     <div>

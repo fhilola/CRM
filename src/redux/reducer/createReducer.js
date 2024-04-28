@@ -1,6 +1,6 @@
-import { CREATE_USER } from "../actions/index";
+import { CREATE, CREATE_LOADING } from "../actions/index";
 const initialState = {
-    user: null,
+    created: null,
     isloading: false,
     isError: false,
     isCreated: false
@@ -8,10 +8,10 @@ const initialState = {
 
 const createReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_USER:
+        case CREATE:
             return {
                 ...state,
-                user: action.payload,
+                created: action.payload,
                 isloading: false,
                 isError: false,
                 isCreated: true

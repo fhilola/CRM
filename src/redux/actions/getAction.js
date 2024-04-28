@@ -1,4 +1,4 @@
-import { GET, GET_GROUP, GET_ROOM, GET_SUBJECT, GET_USER } from ".";
+import { GET_GROUP, GET_ROOM, GET_SUBJECT, GET_USER } from ".";
 import instance
  from "../../api";
 

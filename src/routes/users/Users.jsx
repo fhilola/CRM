@@ -36,13 +36,20 @@ const columns = [
 
 const Users = (props) => {
 
-  const [username, setName] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [status, setStatus] = useState('')
+
+    const handleChange = (value) => {
+        setStatus(value)
+    };
+
   const handleCreate = (e) => {
     e.preventDefault()
-    props.createUser({ username })
+    props.createUser({ username, password, status }, 'user/')
   }
   useEffect(() => {
-    props.getUsers()
+    props.getUsers({username})
   }, [])
   const users = useSelector(state => state.getUser.foydalanuvchilar)
   const data = [];
@@ -54,7 +61,6 @@ const Users = (props) => {
     }
     data.push(userInfo)
   }
-  console.log(data);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -113,7 +119,7 @@ const Users = (props) => {
 
   return (
     <main>
-      <Creation name={username} setName={setName} onSubmitCapture={handleCreate} title={'Foydalanuvchilar'} count={100} />
+      <Creation username={username} setUsername={setUsername} password={password} setPassword={setPassword} handleChange={handleChange} onSubmitCapture={handleCreate} title={'Foydalanuvchilar'} count={100} />
       <Button style={{
         marginBottom:'10px'
       }} type="primary" onClick={start} disabled={!hasSelected} loading={loading}>

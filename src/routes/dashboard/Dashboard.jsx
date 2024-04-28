@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect, useSelector } from 'react-redux'
 import Drawer from '../../layout/drawer/Drawer';
+import { LiaLayerGroupSolid } from "react-icons/lia";
+import { AiOutlineGroup } from "react-icons/ai";
 import './Dashboard.scss'
 import {
     GroupOutlined,
@@ -12,6 +14,7 @@ import {
     UserOutlined,
     PlusCircleOutlined,
     UsergroupAddOutlined,
+    SwitcherOutlined
 } from '@ant-design/icons';
 import { Input, Layout, Menu, theme, Button, Form, Select } from 'antd';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
@@ -26,10 +29,10 @@ function getItem(label, key, icon, children) {
     };
 }
 const items = [
-    getItem(<Link to={'/'} className='sidebar-span'><span className='ant-menu-title-content'>Logo</span></Link>),
+    getItem(<Link to={'/'} className='sidebar-span'><span>Logo</span></Link>),
     getItem(<Link to={'/'} className='sidebar-span'><HomeOutlined /><span className='ant-menu-title-content'>Bosh sahifa</span></Link>),
     getItem(<Link to={'/guruhlar'} className='sidebar-span'><GroupOutlined /><span className='ant-menu-title-content'>Guruhlar</span></Link>),
-    getItem(<Link to={'/xonalar'} className='sidebar-span'><BorderOutlined /><span className='ant-menu-title-content'>Xonalar</span></Link>),
+    getItem(<Link to={'/xonalar'} className='sidebar-span'><SwitcherOutlined /><span className='ant-menu-title-content'>Xonalar</span></Link>),
     getItem(<Link to={'/fanlar'} className='sidebar-span'><ReadOutlined /><span className='ant-menu-title-content'>Fanlar</span></Link>),
     getItem(<Link to={'/vaqt'} className='sidebar-span'><FieldTimeOutlined /><span className='ant-menu-title-content'>Vaqt</span></Link>),
     getItem(<Link to={'/talabalar'} className='sidebar-span'><UsergroupAddOutlined /><span className='ant-menu-title-content'>Talabalar</span></Link>),
@@ -61,7 +64,7 @@ const Dashboard = (props) => {
 
     const handleCreateUser = (e) => {
         e.preventDefault()
-        props.createUser({ username, password, status }, '/user/')
+        props.createUser({ username, password, status }, 'user/')
     }
     return (
 
@@ -124,7 +127,7 @@ const Dashboard = (props) => {
                         }
                     </Header>
                     <div className='content'>
-                        <Outlet />
+                        <Outlet/>
                     </div>
                 </Layout>
             </Layout>
