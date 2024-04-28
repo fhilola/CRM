@@ -35,7 +35,7 @@ const columns = [
 ];
 
 const Users = (props) => {
-
+  console.log(props);
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [status, setStatus] = useState('')
