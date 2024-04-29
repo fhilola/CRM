@@ -20,6 +20,9 @@ const columns = [
       if(status === 'ustoz'){
         color = 'geekblue'
       }
+      if(status === 'assist'){
+        color = 'red'
+      }
       return (
         <Tag color={color} key={status}>
           {status.toUpperCase()}
@@ -50,7 +53,7 @@ const Users = (props) => {
   }
   useEffect(() => {
     props.getUsers({username})
-  }, [])
+  }, [handleCreate])
   const users = useSelector(state => state.getUser.foydalanuvchilar)
   const data = [];
   for (let key in users) {
